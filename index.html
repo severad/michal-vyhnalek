@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michal Vyhnálek | Váš osobní zástupce ve světě nemovitostí</title>
+    <title>Michal Vyhnálek | Reality & Finance</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -22,204 +22,249 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Outfit', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     colors: {
-                        brand: {
-                            dark: '#1e293b', // Slate 800
-                            primary: '#0f766e', // Teal 700
-                            light: '#f8fafc', // Slate 50
-                            soft: '#f1f5f9'   // Slate 100
-                        }
+                        reality: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981', // Emerald
+                            600: '#059669',
+                            900: '#064e3b',
+                        },
+                        finance: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6', // Blue
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                        },
+                        dark: '#0f172a' // Slate 900
                     },
-                    borderRadius: {
-                        '4xl': '2.5rem',
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
                     }
                 }
             }
         }
     </script>
+
+    <style>
+        body { 
+            -webkit-font-smoothing: antialiased; 
+            background-color: #f8fafc;
+        }
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
-<body class="bg-white text-slate-600 antialiased font-sans selection:bg-brand-primary selection:text-white overflow-x-hidden w-full">
+<body class="text-slate-600 overflow-x-hidden">
 
-    <!-- NAVIGATION (Floating) -->
-    <nav class="fixed w-full z-50 pt-4 px-4 md:pt-6" id="navbar">
-        <div class="max-w-6xl mx-auto bg-white/90 backdrop-blur-xl border border-white/40 shadow-sm rounded-full px-5 py-3 md:px-6 md:py-4 flex justify-between items-center transition-all duration-300">
-            <!-- Logo -->
-            <a href="#" class="text-lg md:text-xl font-heading font-bold text-slate-900 tracking-tight whitespace-nowrap">
-                michal<span class="text-brand-primary">vyhnálek.</span>
-            </a>
+    <!-- NAVIGATION (Solid White) -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white border-b border-slate-200" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-xl font-extrabold text-dark tracking-tight">
+                        Michal<span class="text-slate-400 font-medium">Vyhnálek.</span>
+                    </a>
+                </div>
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-500">
-                <a href="#sluzby" class="hover:text-brand-primary transition">Služby</a>
-                <a href="#nabidka" class="hover:text-brand-primary transition">Nabídka</a>
-                <a href="#lokalita" class="hover:text-brand-primary transition">Lokalita</a>
-                <a href="#recenze" class="hover:text-brand-primary transition">Recenze</a>
-            </div>
+                <!-- Desktop Menu (Absolutní střed) -->
+                <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 font-semibold text-sm text-slate-600">
+                    <a href="#reality" class="hover:text-reality-600 transition-colors">Reality</a>
+                    <a href="#finance" class="hover:text-finance-600 transition-colors">Finance</a>
+                    <a href="#nabidka" class="hover:text-dark transition-colors">Portfolio</a>
+                    <a href="#o-mne" class="hover:text-dark transition-colors">O mně</a>
+                </div>
 
-            <!-- CTA -->
-            <div class="hidden md:flex items-center gap-4">
-                <a href="tel:+420732212628" class="text-sm font-bold text-slate-900 hover:text-brand-primary transition">+420 732 212 628</a>
-                <a href="#kontakt" class="bg-slate-900 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-brand-primary transition shadow-lg hover:shadow-brand-primary/30">
-                    Spolupracovat
-                </a>
-            </div>
+                <!-- CTA -->
+                <div class="hidden md:flex items-center justify-end gap-6">
+                    <a href="tel:+420732212628" class="text-sm font-bold text-dark hover:text-reality-600 transition-colors">
+                        732 212 628
+                    </a>
+                    <a href="#kontakt" class="bg-dark text-white px-6 py-2.5 rounded-xl text-sm font-bold hover:bg-slate-800 transition-all shadow-md">
+                        Napsat zprávu
+                    </a>
+                </div>
 
-             <!-- Mobile Menu Button -->
-             <div class="md:hidden">
-                <button id="mobile-menu-btn" class="text-slate-900 p-2 focus:outline-none">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-dark p-2 bg-slate-50 rounded-lg border border-slate-200">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- Mobile Menu Panel -->
-        <div id="mobile-menu" class="hidden absolute top-20 left-4 right-4 bg-white rounded-3xl shadow-2xl p-6 flex flex-col space-y-4 md:hidden border border-gray-100 z-50">
-            <a href="#sluzby" class="text-lg font-heading font-medium p-2 hover:bg-gray-50 rounded-lg">Služby</a>
-            <a href="#nabidka" class="text-lg font-heading font-medium p-2 hover:bg-gray-50 rounded-lg">Nabídka</a>
-            <a href="#lokalita" class="text-lg font-heading font-medium p-2 hover:bg-gray-50 rounded-lg">Lokalita</a>
-            <a href="#recenze" class="text-lg font-heading font-medium p-2 hover:bg-gray-50 rounded-lg">Recenze</a>
-            <a href="#kontakt" class="text-lg font-heading font-bold text-brand-primary p-2 hover:bg-gray-50 rounded-lg">Kontaktovat</a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-white border-b border-slate-200 p-6 flex flex-col space-y-4 shadow-xl z-50">
+            <a href="#reality" class="text-lg font-bold text-reality-600">Reality</a>
+            <a href="#finance" class="text-lg font-bold text-finance-600">Finance</a>
+            <a href="#nabidka" class="text-lg font-bold text-slate-800">Portfolio</a>
+            <a href="#o-mne" class="text-lg font-bold text-slate-800">O mně</a>
+            <a href="#kontakt" class="text-lg font-bold text-white bg-dark p-3 rounded-xl text-center mt-4">Kontaktovat</a>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="pt-28 pb-12 md:pt-48 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <header class="pt-32 pb-20 md:pt-40 md:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-slate-200 text-sm font-bold text-slate-700 mb-8 shadow-sm">
+            <span class="w-2.5 h-2.5 rounded-full bg-reality-500 animate-pulse"></span>
+            Váš zástupce pro Prahu a severní Čechy
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-extrabold text-dark tracking-tighter leading-[1.1] mb-6 max-w-4xl mx-auto">
+            Jeden člověk. <br class="hidden md:block">
+            <span class="bg-gradient-to-r from-reality-500 to-finance-500 gradient-text">Dva světy.</span> Vaše výhoda.
+        </h1>
+        
+        <p class="text-lg md:text-xl text-slate-500 mb-16 max-w-2xl mx-auto leading-relaxed font-medium">
+            Propojuji realitní trh a finanční služby do jednoho funkčního celku. Řeším prodej, rychlé výkupy, rekonstrukce i hypotéky pod jednou střechou.
+        </p>
+
+        <!-- DUAL CARDS (Čisté fotografické karty) -->
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto text-left">
             
-            <div class="order-2 lg:order-1 relative z-10">
-                <span class="inline-block py-1 px-3 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-bold tracking-wider uppercase mb-6">
-                    Realitní & Finanční specialista
-                </span>
+            <!-- Reality Card -->
+            <a href="#reality" class="group relative rounded-3xl overflow-hidden cursor-pointer shadow-soft h-[360px] bg-white">
+                <!-- Background Photo -->
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1000&q=80" alt="Reality" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-slate-900 leading-tight mb-6 md:mb-8 break-words">
-                    Hledáte nebo prodáváte? <br>
-                    <span class="text-slate-400 font-light italic">Já vám s tím pomohu.</span>
-                </h1>
+                <!-- Solid Sharp Gradient for Text Readability -->
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
                 
-                <div class="mb-8 md:mb-10 text-base md:text-lg text-slate-500 space-y-2">
-                    <p class="font-medium text-slate-900 flex items-center gap-2">
-                        <i data-lucide="map-pin" class="w-5 h-5 text-brand-primary"></i>
-                        Praha – Mělník – Teplice – Ústí
-                    </p>
-                    <p class="leading-relaxed">
-                        Jsem váš osobní zástupce. Nejen pro reality. Jsem všude tam, kde mě potřebujete.
-                    </p>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
-                    <a href="#kontakt" class="bg-brand-primary text-white px-8 py-4 rounded-full font-heading font-bold hover:bg-teal-800 transition shadow-xl shadow-brand-primary/20 text-center">
-                        Chci se potkat
-                    </a>
-                    <a href="#sluzby" class="text-slate-900 px-6 py-4 font-medium flex items-center justify-center gap-2 group hover:text-brand-primary transition border border-gray-100 sm:border-0 rounded-full sm:rounded-none">
-                        Co pro vás udělám <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-1 transition"></i>
-                    </a>
-                </div>
-
-                <!-- Features Badges -->
-                <div class="mt-10 md:mt-12 flex flex-wrap gap-3 pt-8 border-t border-slate-100">
-                    <span class="bg-gray-50 text-slate-600 px-3 py-1 rounded-full text-xs font-bold uppercase">Videoprohlídky</span>
-                    <span class="bg-gray-50 text-slate-600 px-3 py-1 rounded-full text-xs font-bold uppercase">Odhady zdarma</span>
-                    <span class="bg-gray-50 text-slate-600 px-3 py-1 rounded-full text-xs font-bold uppercase">Řešení exekucí</span>
-                </div>
-            </div>
-
-            <div class="order-1 lg:order-2 relative px-2">
-                <div class="aspect-[4/5] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl relative z-10">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Michal Vyhnálek" class="w-full h-full object-cover">
-                    
-                    <!-- Floating Card -->
-                    <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 bg-white/90 backdrop-blur-md p-4 md:p-6 rounded-2xl md:rounded-3xl border border-white/50 shadow-lg">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-slate-900 flex items-center justify-center text-white flex-shrink-0">
-                                <i data-lucide="calendar-check" class="w-5 h-5 md:w-6 md:h-6"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm font-bold text-slate-900">Jsem flexibilní</p>
-                                <p class="text-xs text-slate-500">Přizpůsobím se vašim časovým možnostem.</p>
-                            </div>
-                        </div>
+                <!-- Content -->
+                <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                    <div class="w-14 h-14 bg-reality-500 rounded-xl flex items-center justify-center mb-5 shadow-lg group-hover:-translate-y-1 transition-transform">
+                        <i data-lucide="home" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-3xl font-extrabold text-white mb-2 tracking-tight">Potřebuji řešit Reality</h3>
+                    <p class="text-slate-300 font-medium mb-6">Prodej • Výkupy • Rekonstrukce</p>
+                    <div class="flex items-center gap-2">
+                        <span class="bg-white text-dark px-5 py-2.5 rounded-xl text-sm font-bold group-hover:bg-reality-500 group-hover:text-white transition-colors flex items-center gap-2">
+                            Zobrazit služby <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </span>
                     </div>
                 </div>
-                <!-- Decorative Circle -->
-                <div class="absolute -top-10 -right-4 md:-right-10 w-48 h-48 md:w-64 md:h-64 bg-brand-primary/10 rounded-full blur-3xl -z-10"></div>
-            </div>
+            </a>
+
+            <!-- Finance Card -->
+            <a href="#finance" class="group relative rounded-3xl overflow-hidden cursor-pointer shadow-soft h-[360px] bg-white">
+                <!-- Background Photo -->
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1000&q=80" alt="Finance" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                
+                <!-- Solid Sharp Gradient for Text Readability -->
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+                
+                <!-- Content -->
+                <div class="absolute inset-0 p-8 flex flex-col justify-end z-10">
+                    <div class="w-14 h-14 bg-finance-500 rounded-xl flex items-center justify-center mb-5 shadow-lg group-hover:-translate-y-1 transition-transform">
+                        <i data-lucide="landmark" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-3xl font-extrabold text-white mb-2 tracking-tight">Potřebuji řešit Finance</h3>
+                    <p class="text-slate-300 font-medium mb-6">Hypotéky • Poradenství • Investice</p>
+                    <div class="flex items-center gap-2">
+                        <span class="bg-white text-dark px-5 py-2.5 rounded-xl text-sm font-bold group-hover:bg-finance-500 group-hover:text-white transition-colors flex items-center gap-2">
+                            Zobrazit služby <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </span>
+                    </div>
+                </div>
+            </a>
+
         </div>
     </header>
 
-    <!-- SERVICES -->
-    <section class="py-16 md:py-24 bg-brand-soft rounded-t-[3rem] md:rounded-t-[4rem]" id="sluzby">
+    <!-- SECTION 1: REALITY (Zelená sekce) -->
+    <section class="py-24 bg-white border-y border-slate-200" id="reality">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 md:mb-16 max-w-2xl mx-auto">
-                <h2 class="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-4">Jednoduše, mile, stručně</h2>
-                <p class="text-slate-500 text-sm md:text-base px-4">
-                    Nejsem jen makléř. Jsem váš člověk pro všechno, co se týká bydlení. Vy řeknete problém, já zařídím řešení.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+            <div class="grid lg:grid-cols-12 gap-16 items-start">
                 
-                <!-- Card 1: Hledám / Prodávám -->
-                <div class="bg-white p-8 md:p-10 rounded-[2rem] hover:shadow-xl transition duration-300 group">
-                    <div class="w-12 h-12 md:w-14 md:h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <i data-lucide="home" class="w-6 h-6 md:w-7 md:h-7"></i>
+                <!-- Section Header -->
+                <div class="lg:col-span-4 lg:sticky lg:top-32">
+                    <div class="w-16 h-16 bg-reality-50 rounded-2xl border border-reality-100 flex items-center justify-center mb-6">
+                        <i data-lucide="key" class="w-8 h-8 text-reality-600"></i>
                     </div>
-                    <h3 class="text-xl font-heading font-bold text-slate-900 mb-3">Hledám nebo Prodávám</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
-                        Chcete bydlet ve vlastním? Nebo máte nemovitost na prodej? Zajistím odhad, krásnou textaci inzerátu, videoprohlídky a najdu kupce.
+                    <h2 class="text-4xl font-extrabold text-dark mb-4 tracking-tight">Svět <br>Realit</h2>
+                    <p class="text-slate-600 font-medium text-lg mb-8 leading-relaxed">
+                        Nejsem jen zprostředkovatel. Jsem váš osobní projektový manažer pro prodej, nákup i přípravu vaší nemovitosti.
                     </p>
-                    <ul class="text-sm text-slate-500 space-y-2 mb-6">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> Odhady nemovitostí</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-blue-600"></i> Videoprohlídky</li>
-                    </ul>
+                    <a href="#kontakt" class="inline-flex items-center justify-center bg-reality-600 text-white px-8 py-3.5 rounded-xl font-bold hover:bg-reality-700 transition-colors shadow-lg">
+                        Poptat realitní služby
+                    </a>
                 </div>
 
-                <!-- Card 2: Technický servis -->
-                <div class="bg-white p-8 md:p-10 rounded-[2rem] hover:shadow-xl transition duration-300 group">
-                    <div class="w-12 h-12 md:w-14 md:h-14 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <i data-lucide="hammer" class="w-6 h-6 md:w-7 md:h-7"></i>
+                <!-- Services Grid -->
+                <div class="lg:col-span-8 grid sm:grid-cols-2 gap-6">
+                    
+                    <!-- Card A -->
+                    <div class="bg-slate-50 border border-slate-200 p-8 rounded-3xl hover:border-reality-300 transition-colors">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 border border-slate-200">
+                            <i data-lucide="tag" class="w-6 h-6 text-reality-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark mb-3">Prodej & Hledání</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
+                            Zajistím perfektní prezentaci. Profesionální fotky, poutavé texty a cílený marketing. Najdu kupce za maximální cenu. Pokud naopak hledáte, pomohu vám najít vysněný domov.
+                        </p>
+                        <ul class="space-y-3 text-sm font-bold text-slate-700">
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-reality-500"></i> Odhady zdarma</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-reality-500"></i> 3D Videoprohlídky</li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-heading font-bold text-slate-900 mb-3">Rekonstrukce & Vyklízení</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
-                        Potřebujete vyklidit byt? Vydezinfikovat prostor? Nebo zrenovovat koupelnu? Mám externí tým řemeslníků. Zařídím to za vás.
-                    </p>
-                    <ul class="text-sm text-slate-500 space-y-2 mb-6">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-600"></i> Vyklízení a dezinfekce</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-orange-600"></i> Spolupráce s řemeslníky</li>
-                    </ul>
-                </div>
 
-                <!-- Card 3: Finance & Problémy -->
-                <div class="bg-white p-8 md:p-10 rounded-[2rem] hover:shadow-xl transition duration-300 group relative overflow-hidden">
-                    <div class="w-12 h-12 md:w-14 md:h-14 bg-brand-primary/10 text-brand-primary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <i data-lucide="wallet" class="w-6 h-6 md:w-7 md:h-7"></i>
+                    <!-- Card B -->
+                    <div class="bg-slate-50 border border-slate-200 p-8 rounded-3xl hover:border-reality-300 transition-colors">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 border border-slate-200">
+                            <i data-lucide="banknote" class="w-6 h-6 text-reality-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark mb-3">Rychlé výkupy</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
+                            Tlačí vás čas nebo banka? Zdědili jste nemovitost a chcete hned hotovost? Umím zajistit okamžitý výkup a řeším i velmi složité právní situace a exekuce.
+                        </p>
+                        <ul class="space-y-3 text-sm font-bold text-slate-700">
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-reality-500"></i> Výplata hotovosti hned</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-reality-500"></i> Řešení exekucí a dražeb</li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-heading font-bold text-slate-900 mb-3">Finance & Exekuce</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6">
-                        Nevíte na co dosáhnete? Máte hotovost a chcete investovat? Nebo řešíte exekuce a potřebujete rychle vykoupit nemovitost? Pomohu.
-                    </p>
-                    <ul class="text-sm text-slate-500 space-y-2 mb-6">
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i> Výkup nemovitostí</li>
-                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-primary"></i> Řešení exekucí</li>
-                    </ul>
+
+                    <!-- Card C (Full width) -->
+                    <div class="bg-slate-50 border border-slate-200 p-8 rounded-3xl sm:col-span-2 flex flex-col sm:flex-row gap-8 items-start hover:border-reality-300 transition-colors">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-slate-200 shrink-0">
+                            <i data-lucide="hammer" class="w-6 h-6 text-reality-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-dark mb-3">Vyklízení, Rekonstrukce & Renovace</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4 font-medium">
+                                Nemovitost v původním stavu? Žádný problém. Zajistím kompletní vyklizení starého nábytku, dezinfekci, vymalování i drobnou nebo celkovou rekonstrukci. Spolupracuji s ověřenými řemeslníky.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="px-4 py-1.5 bg-white text-dark text-xs font-bold rounded-lg border border-slate-200 shadow-sm">Řemeslníci</span>
+                                <span class="px-4 py-1.5 bg-white text-dark text-xs font-bold rounded-lg border border-slate-200 shadow-sm">Vyklízení</span>
+                                <span class="px-4 py-1.5 bg-white text-dark text-xs font-bold rounded-lg border border-slate-200 shadow-sm">Home Staging</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                
             </div>
         </div>
     </section>
 
-    <!-- REAL ESTATE LISTINGS (Added Back) -->
-    <section class="py-16 md:py-24 bg-white" id="nabidka">
+    <!-- REAL ESTATE LISTINGS (Portfolio - Čisté karty) -->
+    <section class="py-24 bg-slate-50 border-b border-slate-200" id="nabidka">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
                 <div>
-                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-4">Aktuálně v nabídce</h2>
-                    <p class="text-slate-500 text-sm md:text-base">Vybrané nemovitosti, které hledají nové majitele.</p>
+                    <h2 class="text-4xl font-extrabold text-dark mb-4 tracking-tight">Aktuálně v nabídce</h2>
+                    <p class="text-slate-600 font-medium text-lg">Vybrané nemovitosti, které hledají nové majitele.</p>
                 </div>
-                <div class="mt-4 md:mt-0">
-                     <a href="#" class="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-brand-primary transition">
+                <div class="mt-6 md:mt-0">
+                     <a href="#" class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 shadow-sm rounded-xl text-sm font-bold text-dark hover:bg-slate-100 transition-colors">
                         Zobrazit vše <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
@@ -227,53 +272,53 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Listing 1 -->
-                <div class="group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-[2rem] aspect-[4/3] mb-4">
-                        <div class="absolute top-4 left-4 bg-brand-primary text-white px-3 py-1 rounded-full text-xs font-bold z-10 shadow-lg">
+                <div class="bg-white rounded-3xl p-4 shadow-card border border-slate-200 group cursor-pointer hover:shadow-soft transition-shadow">
+                    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-5 border border-slate-100">
+                        <div class="absolute top-4 left-4 bg-reality-600 text-white px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wide z-10 shadow-sm">
                             Exkluzivně
                         </div>
-                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Moderní vila" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Moderní vila" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                     </div>
-                    <div class="px-2">
-                         <div class="flex justify-between items-start">
+                    <div class="px-2 pb-2">
+                         <div class="flex justify-between items-start gap-4">
                             <div>
-                                <h3 class="text-lg font-heading font-bold text-slate-900 group-hover:text-brand-primary transition">Vila Liberec - Staré Město</h3>
-                                <p class="text-slate-500 text-sm">4+kk • 150 m² • Zahrada</p>
+                                <h3 class="text-xl font-bold text-dark group-hover:text-reality-600 transition-colors mb-1">Vila Liberec - Staré Město</h3>
+                                <p class="text-slate-500 font-medium text-sm">4+kk • 150 m² • Zahrada</p>
                             </div>
-                            <span class="font-heading font-bold text-slate-900 whitespace-nowrap ml-2">12 mil.</span>
+                            <span class="font-extrabold text-dark text-lg whitespace-nowrap bg-slate-50 border border-slate-200 px-3 py-1 rounded-lg">12 mil.</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Listing 2 -->
-                <div class="group cursor-pointer">
-                    <div class="relative overflow-hidden rounded-[2rem] aspect-[4/3] mb-4">
-                        <div class="absolute top-4 left-4 bg-slate-900 text-white px-3 py-1 rounded-full text-xs font-bold z-10 shadow-lg">
+                <div class="bg-white rounded-3xl p-4 shadow-card border border-slate-200 group cursor-pointer hover:shadow-soft transition-shadow">
+                    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-5 border border-slate-100">
+                        <div class="absolute top-4 left-4 bg-dark text-white px-4 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wide z-10 shadow-sm">
                             Rezervace
                         </div>
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Byt" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Byt" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
                     </div>
-                    <div class="px-2">
-                        <div class="flex justify-between items-start">
+                    <div class="px-2 pb-2">
+                        <div class="flex justify-between items-start gap-4">
                             <div>
-                                <h3 class="text-lg font-heading font-bold text-slate-900 group-hover:text-brand-primary transition">Byt s lodžií Letňany</h3>
-                                <p class="text-slate-500 text-sm">3+kk • 71 m² • Praha 18</p>
+                                <h3 class="text-xl font-bold text-dark group-hover:text-reality-600 transition-colors mb-1">Byt s lodžií Letňany</h3>
+                                <p class="text-slate-500 font-medium text-sm">3+kk • 71 m² • Praha 18</p>
                             </div>
-                            <span class="font-heading font-bold text-slate-900 whitespace-nowrap ml-2">9.2 mil.</span>
+                            <span class="font-extrabold text-dark text-lg whitespace-nowrap bg-slate-50 border border-slate-200 px-3 py-1 rounded-lg">9.2 mil.</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Listing 3 (Search Service) -->
-                <div class="rounded-[2rem] bg-slate-900 p-8 flex flex-col justify-center items-center text-center text-white relative overflow-hidden aspect-[4/3] md:aspect-auto group cursor-pointer hover:bg-slate-800 transition">
-                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-6">
-                        <i data-lucide="search" class="w-6 h-6 text-brand-primary"></i>
+                <div class="bg-dark rounded-3xl p-8 flex flex-col justify-center items-center text-center relative overflow-hidden aspect-[4/3] md:aspect-auto group cursor-pointer hover:bg-slate-800 transition-colors shadow-card">
+                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-6 border border-white/20 group-hover:scale-110 transition-transform">
+                        <i data-lucide="search" class="w-8 h-8 text-white"></i>
                     </div>
-                    <h3 class="text-xl font-heading font-bold mb-2">Přednostní přístup</h3>
-                    <p class="text-slate-400 text-sm mb-6 px-4 leading-relaxed">
-                        Mám v zásobě zajímavé projekty. Díky mým kontaktům se k nim často dostanete dříve, než půjdou oficiálně na trh.
+                    <h3 class="text-2xl font-bold text-white mb-3">Přednostní přístup</h3>
+                    <p class="text-slate-400 text-sm mb-8 font-medium leading-relaxed px-2">
+                        Mám v zásobě zajímavé projekty. Díky mým kontaktům se k nim dostanete dříve, než půjdou oficiálně na trh.
                     </p>
-                    <a href="#kontakt" class="bg-brand-primary text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-teal-600 transition shadow-lg">
+                    <a href="#kontakt" class="bg-white text-dark px-8 py-3 rounded-xl text-sm font-bold hover:bg-slate-100 transition-colors shadow-lg">
                         Napište mi, co hledáte
                     </a>
                 </div>
@@ -281,197 +326,222 @@
         </div>
     </section>
 
-    <!-- OSOBNÍ ZÁSTUPCE -->
-    <section class="py-16 md:py-24 bg-brand-soft rounded-t-[3rem] md:rounded-t-[4rem]" id="lokalita">
+    <!-- SECTION 2: FINANCE (Modrá sekce) -->
+    <section class="py-24 bg-white border-b border-slate-200" id="finance">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-slate-900 rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 text-white overflow-hidden relative">
-                <div class="grid lg:grid-cols-2 gap-12 items-center relative z-10">
-                    <div class="order-2 lg:order-1">
-                        <h2 class="text-sm font-bold text-brand-primary tracking-widest uppercase mb-4">Váš člověk</h2>
-                        <h3 class="text-3xl md:text-5xl font-heading font-bold mb-6">Osobní zástupce. <br>Nejen v nemovitostech.</h3>
-                        <div class="space-y-6 text-slate-300 font-light leading-relaxed text-sm md:text-base">
-                            <p>
-                                Můj přístup je jednoduchý: <strong>Vy máte potřebu, já mám řešení.</strong> Ať už jde o prodej luxusní vily nebo vyřešení komplikované exekuce na bytě po babičce.
-                            </p>
-                            <p>
-                                Pohybuji se na ose <strong>Praha – Mělník – Teplice – Ústí</strong>. Díky tomu jsem flexibilní a mohu se s vámi potkat osobně tam, kde vám to nejvíce vyhovuje.
-                            </p>
-                            <p>
-                                Jsem obchodník s citem umělce a duší bojovníka. To znamená, že vaši nemovitost krásně připravím (textace, foto), ale zároveň tvrdě vyjednám nejlepší podmínky prodeje.
-                            </p>
+            <div class="grid lg:grid-cols-12 gap-16 items-start">
+                
+                <!-- Services Grid (Left side) -->
+                <div class="lg:col-span-8 grid sm:grid-cols-2 gap-6 order-2 lg:order-1">
+                    
+                    <!-- Card A -->
+                    <div class="bg-slate-50 border border-slate-200 p-8 rounded-3xl hover:border-finance-300 transition-colors">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 border border-slate-200">
+                            <i data-lucide="landmark" class="w-6 h-6 text-finance-600"></i>
                         </div>
-                        <div class="mt-8">
-                             <a href="#kontakt" class="inline-block bg-white text-slate-900 px-8 py-3 rounded-full font-bold hover:bg-brand-primary hover:text-white transition">
-                                Zavolat Michalovi
-                            </a>
+                        <h3 class="text-xl font-bold text-dark mb-3">Hypotéky & Úvěry</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
+                            Vyjednám pro vás ty nejlepší podmínky napříč všemi bankami. Ať už kupujete první byt, stavíte dům, nebo potřebujete refinancovat nevýhodný úvěr.
+                        </p>
+                        <ul class="space-y-3 text-sm font-bold text-slate-700">
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-finance-500"></i> Srovnání všech bank</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-finance-500"></i> Vyřízení byrokracie</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card B -->
+                    <div class="bg-slate-50 border border-slate-200 p-8 rounded-3xl hover:border-finance-300 transition-colors">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 border border-slate-200">
+                            <i data-lucide="trending-up" class="w-6 h-6 text-finance-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-dark mb-3">Finanční poradenství</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
+                            Komplexní pohled na vaše peníze. Nastavíme plán tak, abyste tvořili rezervy, chránili své úspory před inflací a byli v klidu dnes i v důchodu.
+                        </p>
+                        <ul class="space-y-3 text-sm font-bold text-slate-700">
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-finance-500"></i> Tvorba rezerv</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 text-finance-500"></i> Investiční strategie</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card C (Full width) -->
+                    <div class="bg-slate-50 border border-slate-200 p-8 rounded-3xl sm:col-span-2 flex flex-col sm:flex-row gap-8 items-start hover:border-finance-300 transition-colors">
+                        <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-slate-200 shrink-0">
+                            <i data-lucide="shield-check" class="w-6 h-6 text-finance-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-dark mb-3">Pojištění majetku a osob</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4 font-medium">
+                                Koupě nemovitosti nebo nová hypotéka vyžaduje kvalitní zabezpečení. Najdeme řešení, které bude chránit váš domov i vaši rodinu bez nesmyslných poplatků.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="px-4 py-1.5 bg-white text-dark text-xs font-bold rounded-lg border border-slate-200 shadow-sm">Životní pojištění</span>
+                                <span class="px-4 py-1.5 bg-white text-dark text-xs font-bold rounded-lg border border-slate-200 shadow-sm">Pojištění nemovitosti</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="relative order-1 lg:order-2">
-                        <img src="https://michalvyhnalek.cz/wp-content/uploads/2022/04/ja-na-stole-doprava-1024x903.jpg" class="rounded-[2rem] border-4 border-white/10 shadow-2xl w-full h-auto object-cover" alt="Michal Vyhnálek">
-                    </div>
+
                 </div>
+
+                <!-- Section Header (Right side) -->
+                <div class="lg:col-span-4 lg:sticky lg:top-32 order-1 lg:order-2">
+                    <div class="w-16 h-16 bg-finance-50 rounded-2xl border border-finance-100 flex items-center justify-center mb-6">
+                        <i data-lucide="landmark" class="w-8 h-8 text-finance-600"></i>
+                    </div>
+                    <h2 class="text-4xl font-extrabold text-dark mb-4 tracking-tight">Svět <br>Financí</h2>
+                    <p class="text-slate-600 font-medium text-lg mb-8 leading-relaxed">
+                        Peníze a reality k sobě neodmyslitelně patří. Tím, že řeším obojí, odpadá čekání a komunikační šum mezi makléřem a bankou.
+                    </p>
+                    <a href="#kontakt" class="inline-flex items-center justify-center bg-finance-600 text-white px-8 py-3.5 rounded-xl font-bold hover:bg-finance-700 transition-colors shadow-lg">
+                        Poptat finanční služby
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- REVIEWS / SOCIAL PROOF (GOOGLE STYLE) -->
-    <section class="py-16 md:py-24 bg-brand-soft" id="recenze">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10">
-                <div class="inline-flex items-center justify-center gap-2 mb-2 bg-white px-4 py-2 rounded-full shadow-sm">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-5 h-5">
-                    <span class="font-bold text-slate-700 text-sm">Google Recenze</span>
-                </div>
-                <h2 class="text-3xl font-heading font-bold text-slate-900 mb-2">Co o mně říkají klienti</h2>
-                <div class="flex items-center justify-center gap-2 text-sm">
-                    <span class="font-bold text-slate-900 text-lg">5.0</span>
-                    <div class="flex text-yellow-400">
-                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
-                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
-                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
-                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
-                        <i data-lucide="star" class="fill-current w-4 h-4"></i>
+    <!-- OSOBA / O MNĚ (Clean, solid background) -->
+    <section class="py-24 bg-slate-50" id="o-mne">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-[3rem] p-8 md:p-12 lg:p-16 grid md:grid-cols-2 gap-12 lg:gap-20 items-center shadow-card border border-slate-200">
+                
+                <!-- Photo -->
+                <div class="relative">
+                    <img src="https://michalvyhnalek.cz/wp-content/uploads/2022/04/ja-na-stole-doprava-1024x903.jpg" alt="Michal Vyhnálek" class="rounded-3xl object-cover w-full h-auto border border-slate-200 shadow-sm">
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -right-6 bg-dark text-white p-6 rounded-2xl shadow-xl hidden md:block border border-slate-700">
+                        <p class="text-sm font-bold uppercase tracking-widest text-finance-400 mb-1">MBA & ICF</p>
+                        <p class="font-extrabold text-white text-lg leading-tight">Certifikovaný <br>profesionál</p>
                     </div>
-                    <span class="text-slate-500 underline decoration-slate-300 decoration-1 underline-offset-4 cursor-pointer">Vynikající</span>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 text-left">
-                <!-- Review 1 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative group hover:shadow-md transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="G" class="absolute top-6 right-6 w-5 h-5 opacity-50 grayscale group-hover:grayscale-0 transition">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center text-orange-700 font-bold text-sm">JK</div>
-                        <div>
-                            <p class="font-bold text-slate-900 text-sm">Jana K.</p>
-                            <p class="text-xs text-slate-400">před měsícem</p>
-                        </div>
-                    </div>
-                    <div class="flex text-yellow-400 mb-3 gap-0.5">
-                         <i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i>
-                    </div>
-                    <p class="text-sm text-slate-600 leading-relaxed">"Michal nám pomohl nejen prodat byt, ale zajistil i vyklizení starého nábytku. Vše proběhlo neuvěřitelně rychle a bez starostí. Doporučuji všemi deseti."</p>
                 </div>
 
-                <!-- Review 2 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative group hover:shadow-md transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="G" class="absolute top-6 right-6 w-5 h-5 opacity-50 grayscale group-hover:grayscale-0 transition">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-sm">PS</div>
-                        <div>
-                            <p class="font-bold text-slate-900 text-sm">Petr S.</p>
-                            <p class="text-xs text-slate-400">před 2 měsíci</p>
-                        </div>
+                <!-- Text -->
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-dark mb-6 tracking-tight">Nejsem makléř z letáku.</h2>
+                    <div class="space-y-5 text-slate-600 font-medium leading-relaxed">
+                        <p>
+                            Moje minulost není jen o papírech. Prošel jsem i historickým šermem a kaskadérstvím. Zní to úsměvně? Možná, ale naučilo mě to klíčovou věc: <strong class="text-dark">strategii a tvrdý tah na branku.</strong>
+                        </p>
+                        <p>
+                            Dnes tyto dovednosti (podpořené studiem MBA a certifikovaným koučinkem ICF) využívám k tomu, abych pro vás <strong class="text-dark">vyjednal tu absolutně nejlepší cenu</strong>, ať už s kupcem, nebo s bankou.
+                        </p>
+                        <p class="inline-flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-xl border border-slate-200 text-sm font-bold text-dark mt-4">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-reality-600"></i>
+                            Praha – Mělník – Teplice – Ústí n. Labem
+                        </p>
                     </div>
-                    <div class="flex text-yellow-400 mb-3 gap-0.5">
-                         <i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i>
-                    </div>
-                    <p class="text-sm text-slate-600 leading-relaxed">"Potřeboval jsem rychle hotovost a nevěděl jsem, co dělat. Michal přijel, poradil a našli jsme řešení, které mi zachránilo střechu nad hlavou. Lidský přístup."</p>
                 </div>
 
-                <!-- Review 3 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative group hover:shadow-md transition">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="G" class="absolute top-6 right-6 w-5 h-5 opacity-50 grayscale group-hover:grayscale-0 transition">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center text-green-700 font-bold text-sm">TN</div>
-                        <div>
-                            <p class="font-bold text-slate-900 text-sm">Tomáš N.</p>
-                            <p class="text-xs text-slate-400">před 3 týdny</p>
-                        </div>
-                    </div>
-                    <div class="flex text-yellow-400 mb-3 gap-0.5">
-                         <i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i><i data-lucide="star" class="fill-current w-4 h-4"></i>
-                    </div>
-                    <p class="text-sm text-slate-600 leading-relaxed">"Krásná a jasná textace inzerátu, perfektní fotky. Byt se prodal za cenu, kterou jsme ani nečekali. Michal je profík."</p>
-                </div>
-            </div>
-
-            <div class="mt-10 text-center">
-                <a href="#" class="inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 rounded-full text-sm font-bold text-slate-700 hover:bg-gray-50 transition shadow-sm">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="w-4 h-4">
-                    Číst další recenze na Google
-                </a>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT (Minimalist Centered) -->
-    <section class="py-16 md:py-24 bg-white rounded-t-[3rem] md:rounded-t-[4rem]" id="kontakt">
-        <div class="max-w-3xl mx-auto px-4 text-center">
-            <span class="text-brand-primary font-bold tracking-widest uppercase text-xs mb-2 block">Jsem tu pro vás</span>
-            <h2 class="text-3xl md:text-5xl font-heading font-bold text-slate-900 mb-6 md:mb-8">Máte člověka.</h2>
-            <p class="text-slate-500 mb-8 md:mb-12 text-base md:text-lg px-2">
-                Ať už řešíte cokoliv kolem nemovitostí. Stačí zavolat. Působím v lokalitách Praha - Mělník - Teplice - Ústí.
-            </p>
+    <!-- CONTACT (Solid clean form) -->
+    <section class="py-24 bg-dark" id="kontakt">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6 tracking-tight">Stačí se <span class="bg-gradient-to-r from-reality-500 to-finance-500 gradient-text">ozvat.</span></h2>
+                    <p class="text-slate-400 text-lg mb-12 font-medium max-w-md leading-relaxed">
+                        Máte dotaz ohledně nemovitosti nebo potřebujete poradit s financemi? Jsem tu pro vás. První káva je na mě.
+                    </p>
 
-            <div class="bg-brand-soft p-2 rounded-[2rem] shadow-sm flex flex-col md:flex-row gap-2 mb-12 w-full max-w-2xl mx-auto">
-                <a href="tel:+420732212628" class="flex-1 py-4 px-6 rounded-[1.5rem] bg-white hover:bg-slate-50 transition flex items-center justify-center gap-3 text-slate-900 font-bold shadow-sm">
-                    <div class="w-10 h-10 bg-brand-primary/10 rounded-full flex items-center justify-center text-brand-primary flex-shrink-0">
-                        <i data-lucide="phone" class="w-5 h-5"></i>
+                    <div class="space-y-6">
+                        <a href="tel:+420732212628" class="flex items-center gap-5 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors w-fit group">
+                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-dark shadow-sm group-hover:text-reality-500 transition-colors">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-slate-400 mb-0.5">Zavolejte přímo</p>
+                                <p class="text-xl font-extrabold text-white tracking-wide">732 212 628</p>
+                            </div>
+                        </a>
+                        <a href="mailto:info@michalvyhnalek.cz" class="flex items-center gap-5 p-4 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors w-fit group">
+                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-dark shadow-sm group-hover:text-finance-500 transition-colors">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-slate-400 mb-0.5">Napište mi email</p>
+                                <p class="text-lg font-bold text-white">info@michalvyhnalek.cz</p>
+                            </div>
+                        </a>
                     </div>
-                    <span class="whitespace-nowrap">732 212 628</span>
-                </a>
-                <a href="mailto:info@michalvyhnalek.cz" class="flex-1 py-4 px-6 rounded-[1.5rem] bg-white hover:bg-slate-50 transition flex items-center justify-center gap-3 text-slate-900 font-bold break-all md:break-normal shadow-sm">
-                    <div class="w-10 h-10 bg-brand-primary/10 rounded-full flex items-center justify-center text-brand-primary flex-shrink-0">
-                        <i data-lucide="mail" class="w-5 h-5"></i>
-                    </div>
-                    info@michalvyhnalek.cz
-                </a>
+                </div>
+
+                <!-- Form (Solid White) -->
+                <div class="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-10 shadow-xl">
+                    <h3 class="text-2xl font-bold text-dark mb-6">Napište mi zprávu</h3>
+                    <form class="space-y-5">
+                        <div class="grid grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-bold text-dark mb-2">Jméno</label>
+                                <input type="text" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-reality-500 transition-shadow shadow-sm" placeholder="Jan Novák">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-dark mb-2">Telefon</label>
+                                <input type="tel" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-finance-500 transition-shadow shadow-sm" placeholder="+420 ...">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-dark mb-2">Téma</label>
+                            <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-400 transition-shadow font-medium text-slate-600 shadow-sm appearance-none">
+                                <option>Potřebuji řešit Reality (Prodej/Výkup/Rekonstrukce)</option>
+                                <option>Potřebuji řešit Finance (Hypotéka/Poradenství)</option>
+                                <option>Mám zájem o komplexní služby (Obojí)</option>
+                                <option>Jiné téma</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-dark mb-2">Vaše zpráva</label>
+                            <textarea rows="4" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-slate-400 transition-shadow resize-none shadow-sm placeholder-slate-400" placeholder="Krátce popište, s čím vám mohu pomoci..."></textarea>
+                        </div>
+                        <button type="button" class="w-full bg-dark text-white font-bold py-4 rounded-xl hover:bg-slate-800 transition-colors shadow-md mt-2">
+                            Odeslat zprávu
+                        </button>
+                    </form>
+                </div>
+
             </div>
-
-            <form class="bg-brand-soft p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] text-left space-y-4 md:space-y-6">
-                <div class="grid md:grid-cols-2 gap-4 md:gap-6">
-                    <div class="space-y-2">
-                        <label class="text-sm font-bold text-slate-900 ml-4">Jméno</label>
-                        <input type="text" class="w-full bg-white border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-brand-primary transition shadow-sm" placeholder="Jan Novák">
-                    </div>
-                    <div class="space-y-2">
-                        <label class="text-sm font-bold text-slate-900 ml-4">Telefon</label>
-                        <input type="tel" class="w-full bg-white border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-brand-primary transition shadow-sm" placeholder="+420 ...">
-                    </div>
-                </div>
-                <div class="space-y-2">
-                    <label class="text-sm font-bold text-slate-900 ml-4">S čím potřebujete pomoci?</label>
-                    <select class="w-full bg-white border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-brand-primary transition text-slate-600 shadow-sm">
-                        <option>Chci prodat nemovitost</option>
-                        <option>Hledám bydlení</option>
-                        <option>Potřebuji vyklidit/zrekonstruovat</option>
-                        <option>Řeším finance / exekuci</option>
-                        <option>Něco jiného</option>
-                    </select>
-                </div>
-                <div class="space-y-2">
-                    <label class="text-sm font-bold text-slate-900 ml-4">Zpráva</label>
-                    <textarea rows="4" class="w-full bg-white border-0 rounded-2xl px-6 py-4 focus:ring-2 focus:ring-brand-primary transition shadow-sm placeholder-slate-400" placeholder="Zde můžete připsat další detaily..."></textarea>
-                </div>
-                <button class="w-full bg-slate-900 text-white font-bold py-5 rounded-2xl hover:bg-brand-primary transition shadow-lg">
-                    Odeslat zprávu
-                </button>
-            </form>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-white py-12 text-center text-slate-400 text-sm">
+    <footer class="bg-slate-950 py-10 border-t border-slate-900 text-center">
         <div class="max-w-7xl mx-auto px-4">
-            <p class="mb-4 font-heading font-bold text-slate-900 text-lg">michal<span class="text-brand-primary">vyhnálek.</span></p>
-            <div class="flex flex-wrap justify-center gap-6 mb-8">
-                <a href="#" class="hover:text-slate-900 transition">Instagram</a>
-                <a href="#" class="hover:text-slate-900 transition">Facebook</a>
-                <a href="#" class="hover:text-slate-900 transition">LinkedIn</a>
+            <p class="text-xl font-extrabold text-white mb-6 tracking-tight">
+                Michal<span class="text-slate-500">Vyhnálek.</span>
+            </p>
+            <div class="flex justify-center gap-6 mb-8 text-sm font-bold text-slate-500">
+                <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                <a href="#" class="hover:text-white transition-colors">Facebook</a>
+                <a href="#" class="hover:text-white transition-colors">LinkedIn</a>
             </div>
-            <p>© 2026 Michal Vyhnálek. Váš osobní zástupce.</p>
+            <p class="text-slate-600 text-xs font-semibold">© 2026 Michal Vyhnálek. Reality & Finance.</p>
         </div>
     </footer>
 
     <script>
+        // Initialize Icons
         lucide.createIcons();
         
+        // Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
+        });
+
+        // Add shadow to nav on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-sm');
+            }
         });
     </script>
 </body>
